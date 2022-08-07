@@ -1,0 +1,381 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Access NFT</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <!-- <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="#">Access NFT</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#faq">Faq</a></li>
+          {% if user.is_authenticated %}
+          <li><a class="getstarted scrollto" href="dashboard">Dashboard</a></li>
+          {% else %}
+          <li><a class="getstarted scrollto" href="#login">Login</a></li>
+          {% endif %}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+      <div class="row justify-content-center">
+        <div class="col-xl-7 col-lg-9 text-center">
+          <h1>Access NFT</h1>
+          <h2>Access exceptional services</h2>
+        </div>
+      </div>
+      <div class="text-center">
+        {% if user.is_authenticated %}
+        <a href="dashboard" class="btn-get-started scrollto">Go To Dashboard</a>
+        {% else %}
+        <a href="#login" class="btn-get-started scrollto">Login To Dashboard</a>
+        {% endif %}
+      </div>
+
+      <div class="row icon-boxes">
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+          <img width="300" height="300" src="{% static 'assets/img/access_pass.gif' %}">
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+          <img width="300" height="300" src="{% static 'assets/img/access_pass.gif' %}">
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+          <img width="300" height="300" src="{% static 'assets/img/access_pass.gif' %}">
+        </div>
+
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+          <img width="300" height="300" src="{% static 'assets/img/access_pass.gif' %}">
+        </div>
+
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>About</h2>
+          <p>Access NFT is a low supply collection of 200 NFTS. Minting an Access NFT gives you access to the special tools we are building, more details on this in the FAQ section and in our discord server.</p>
+        </div>
+
+        
+
+      </div>
+    </section><!-- End About Section -->
+
+ 
+
+
+
+
+    <!-- ======= Frequently Asked Questions Section ======= -->
+    <section id="faq" class="faq section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Frequently Asked Questions</h2>
+          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+        </div>
+
+        <div class="faq-list">
+          <ul>
+            <li data-aos="fade-up">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">What is Access NFT <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+                <p>
+                  Access NFT is a collection of 200 NFTs. Having an Access NFT allows you to access our special tools.
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="100">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">What do we offer? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  We are building a platform that has tools to make your NFT experience a very good experience. The first tools we will be building is the Whitelist tool which allows you to get "real" discord invites to any NFT project.
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="200">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">What makes us unique? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  The Whitelist tool we are building will allow you get real discord invites. We have noticed that servers marks bot discord account as fake, so we have conquered this because we are using real discord accounts, and we also have a feature where each discord account can be verified in the discord server by automatically reacting to the verification message in the discord server
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="300">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">How can you access our tool? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  You can access this tool when you have an Access NFT
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="400">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">What blockchain will we be minting on? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  We will be minting on the solana blockchain.</p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="400">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">Why Only 200 NFTs? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  We made the supply only 200 so that we can have the capacity to supply our services for every single person that mints.</p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="400">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">What are the mint details? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  To get more details about our mint date and price, join out discord server</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </section><!-- End Frequently Asked Questions Section -->
+
+    {% if user.is_authenticated %}
+
+    {% else %}
+    <!-- ======= Login Section ======= -->
+    <section id="login" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2 align="left">Login</h2>
+        </div>
+
+        <div>
+          <div class="col-lg-8 mt-5 mt-lg-0">
+
+            <form action="login" method="POST" role="form" class="">
+              {% csrf_token %}
+
+              <div>
+                  <style>
+                  h5{
+                      padding-bottom: 10px;
+                      color: red;
+                  }
+                  </style>
+                  {% for message in messages %}
+                  <h5>{{message}}</h5>
+                  {% endfor %}
+              </div>
+
+              <div class="form-group mt-3">
+                <input name="username" id="username" type="text" class="form-control" placeholder="Username" required>
+              </div>
+
+              <div class="form-group mt-3">
+                <input name="password" id="password" type="password" class="form-control" placeholder="Password" required>
+              </div>
+
+              <style>
+                .button {
+                  background-color: #4CAF50; /* Green */
+                  border: none;
+                  color: white;
+                  padding: 15px 32px;
+                  text-align: center;
+                  text-decoration: none;
+                  display: inline-block;
+                  font-size: 16px;
+                  margin: 4px 2px;
+                  cursor: pointer;
+                  border-radius: 7px;
+                }
+
+                .button2 {background-color: #008CBA;} /* Blue */
+              </style>
+
+              <br>
+              <div><button class="button button2" name="submit" id="submit" type="submit">Login</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+    {% endif %}
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+   
+
+    <div class="container d-md-flex py-4">
+
+      
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/purecounter/purecounter.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+<!-- 
+
+
+create discord
+create twitter
+start promotion
+create website
+200 Full Whitelist
+Mint price - 0.69 SOL (mint price wont change no matter how the price of solana changes)
+
+
+
+- Get 10 real invites with verification
+
+- Every 200 that mints get whitelist for very hyped projects
+	- we are going to get 20 whitelist for 10 hyped upcoming projects, which makes a total of 200 Whitelist, and we split it amoung all our holder/users
+    
+- After minting, we will provide unique login to every of our holders to access out WhiteList tool website.
+
+- Every member of the site has access to the 10 real invites with discord verification
+
+Why Just 200 NFTs?
+We made this because we will be able to afford to get invites and fufil our roadmap even if all 200 NFTs are delisted and are being used
+								OR	
+with 200 NFTs, we will be able to supply qualtiy invites for every 200 people that holds our nfts, holding our 
+
+
+
+- JOURNEY
+Minting soon
+Website out now
+All 200 logins have been created
+Holders verification immediately after mint
+Access to the website immediately after mint
+Magiceden and Solanart listing immediately after mint
+
+And WL distribution for these projects start immediately after mint:
+- All 20 or 10 projects
+
+
+
+
+
+NOTE:- Transparency is key and we will tell you how we are going to provide you with real invites.
+We have 3000 reall nft profiled discord accounts, and we have access to all o them.
+We also have an automated system that automatically logs into each of the account and verify as normal users, to verify, the user has to drop the link to that message that the needs to be reacted to.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+name of project - from a list (we use this to track the projects each of our accounts has joined)
+
+discord link
+
+amount of invites (max 10)
+
+link to discord message to react to for verification ( leave blank if no reaction needed) -->

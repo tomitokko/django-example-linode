@@ -1,0 +1,241 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Floor Alerts - Access NFT</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <!-- <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="#">Access NFT</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/">Home</a></li>
+          <li><a class="nav-link scrollto active" href="dashboard">Dashboard</a></li>
+          <li><a class="getstarted scrollto" href="logout">Logout</a></li>
+       
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+
+  <main id="main">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      max-width: 300px;
+      margin: auto;
+      text-align: center;
+      font-family: arial;
+    }
+    
+    .title {
+      color: grey;
+      font-size: 18px;
+    }
+    
+    button {
+      border: none;
+      outline: 0;
+      display: inline-block;
+      padding: 8px;
+      color: white;
+      background-color: #008CBA;
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+    }
+    
+    a {
+      text-decoration: none;
+      font-size: 22px;
+      color: black;
+    }
+    
+    button:hover, a:hover {
+      opacity: 0.7;
+    }
+    </style>
+    <br><br><br><br><br>
+    <h2 style="text-align:center">Project's Details</h2>
+    
+    <div class="card">
+      <img src="https{{image_link}}" alt="John" style="width:100%">
+      <br>
+      <h1>{{ project_name }}</h1><hr>
+      <p class="title">Floor Price: <b>{{ floorPrice }} SOL</b></p><hr>
+      <p class="title">Listed Count: <b>{{ listedCount }}</b></p><hr>
+      <p class="title">Average Sale Price(24 Hours): <b>{{ avgPrice24hr }} SOL</b></p><hr>
+      <p class="title">Total Volume(All Time): <b>{{ volumeAll }} SOL</b></p>
+      <!-- <p>Harvard University</p>
+      <div style="margin: 24px 0;">
+        <a href="#"><i class="fa fa-dribbble"></i></a> 
+        <a href="#"><i class="fa fa-twitter"></i></a>  
+        <a href="#"><i class="fa fa-linkedin"></i></a>  
+        <a href="#"><i class="fa fa-facebook"></i></a> 
+      </div> -->
+      <br>
+      <p><button><a style="color: white;" href="#newAlert">Add Alert</a></button></p>
+    </div>
+
+    {{ project_details }}    
+
+
+        <!-- ======= New Alert Section ======= -->
+    <section id="newAlert" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="">
+          <h2 align="left">Add Alert For <b>{{ project_name }}</b></h2>
+        </div>
+
+        <div>
+          <div class="col-lg-8 mt-5 mt-lg-0">
+
+            <form action="alert-success" method="POST" role="form" class="">
+              {% csrf_token %}
+
+              <div>
+                  <style>
+                  h5{
+                      padding-bottom: 10px;
+                      color: red;
+                  }
+                  </style>
+                  {% for message in messages %}
+                  <h5>{{message}}</h5>
+                  {% endfor %}
+              </div>
+
+              <br>
+            <label>If Floor Price Goes</label>
+            <select id="above_or_below" name="above_or_below" class="form-control">
+                
+                <option value="below">Below</option>
+                <option value="above">Above</option>
+                
+            </select>
+
+              <div class="form-group mt-3">
+                <input name="price" id="price" type="number" class="form-control" placeholder="0" step=".01" required>
+              </div>
+
+              <br> 
+              <label>Send Email Alert To:</label>
+              <div class="form-group mt-3">
+                <input name="email" id="email" type="email" class="form-control" placeholder="Email" required>
+              </div>
+
+              <div class="form-group mt-3">
+                <input name="project_name" id="project_name" type="hidden" class="form-control" value="{{project_name}}" required>
+              </div>
+
+              <div class="form-group mt-3">
+                <input name="project_image" id="project_image" type="hidden" class="form-control" value="https{{image_link}}" required>
+              </div>
+
+              <style>
+                .button {
+                  background-color: #4CAF50; /* Green */
+                  border: none;
+                  color: white;
+                  padding: 15px 32px;
+                  text-align: center;
+                  text-decoration: none;
+                  display: inline-block;
+                  font-size: 16px;
+                  margin: 4px 2px;
+                  cursor: pointer;
+                  border-radius: 7px;
+                }
+
+                .button2 {background-color: #008CBA;} /* Blue */
+              </style>
+
+              <br>
+              <div><button class="button button2" name="submit" id="submit" type="submit">Create Alert</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End New Alert Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer style="position: absolute" id="footer">
+
+   
+
+    <div class="container d-md-flex py-4">
+
+      
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <!-- <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a> -->
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/purecounter/purecounter.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
